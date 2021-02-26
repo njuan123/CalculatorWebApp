@@ -80,7 +80,7 @@ function requestHandler(request, response) {
 // create an instance of our httpServer and passing in our request handler callback
 const server = http.createServer(requestHandler);
 // declare our port noumber
-const portNumber = 3030;
+const portNumber = 3000;
 // setup our server to start listening on the port we specified
 server.listen(portNumber, function () {
   // log to our console, so we know our server is up and running.
