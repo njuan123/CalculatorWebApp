@@ -1,0 +1,42 @@
+
+.button-row {
+    align-items: center;
+    text-align: center;
+}
+
+.calculator-title {
+    font-family: Copperplate;
+    font-size: 100;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.button {
+    height: 80;
+    width: 125;
+    margin: 15;
+    font-family: Coppertone;
+    font-size: 40;
+    font-weight: bolder;
+}
+
+.screen-row {
+    align-items: center;
+    text-align: center;
+    transform: scale(4);
+    margin-top: 25;
+    margin-bottom: 0;
+}
+
+.input {
+    text-align: center;
+}
+
+.placeholder {
+    height: 80;
+    width: 125;
+    margin: 15;
+    background:transparent; 
+    border:none; 
+    color:transparent;
+}
