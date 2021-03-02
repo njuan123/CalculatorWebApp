@@ -13,9 +13,7 @@ const Screen = (props) => {
 }
 
 // Define our props expected from the parent component
-Screen.propTypes = {
-  question: React.PropTypes.string.isRequired,
-}
+
 
 // export our component
 export default Screen;

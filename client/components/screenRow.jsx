@@ -13,8 +13,6 @@ const ScreenRow = (props) => {
 
 // we describe the props (property) that the parent element is required to pass
 // into this component
-ScreenRow.propTypes = {
-  value: React.PropTypes.string.isRequired
-}
+
 
 export default ScreenRow;

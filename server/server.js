@@ -3,6 +3,9 @@ import fs from 'fs';
 import url from 'url';
 import path from 'path';
 
+
+var socket = require('socket.io')
+
 /**
  * Function to be used as a callback to our http.createServer method
  * It handles incoming requests and sends the response
@@ -85,4 +88,14 @@ const portNumber = 3000;
 server.listen(portNumber, function () {
   // log to our console, so we know our server is up and running.
   console.log(`Server listening on port ${portNumber}`);
+});
+
+var io = socket(server);
+
+io.on('connection', function(socket) {
+    console.log('made socket connection', socket.id)
+
+    socket.on('chat', function(data) {
+        io.emit('chat', data);
+    });
 });

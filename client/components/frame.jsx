@@ -2,6 +2,8 @@ import React from 'react'; // import react module
 import Screen from './screen'; // Import our screen component from this directory
 import Button from './button'; // Import our button component from this directory
 
+var socket = io.connect('http://localhost:3000')
+
 // create a class which extends react component
 class Frame extends React.Component {
   constructor() {
@@ -15,6 +17,8 @@ class Frame extends React.Component {
     // We did this because 'this' would refer to the source of the click events
     this.handleClick = this.handleClick.bind(this);
   }
+
+
 
   // Render function to creat component to be rendered on the DOM.
   // This method must return a single parent element as you can see here. 
@@ -66,6 +70,10 @@ class Frame extends React.Component {
       case '=': { // if it's an equal sign, use the eval module to evaluate the question
         // convert the answer (in number) to String
         const question = eval(this.state.question).toString();
+        const string = this.state.question + " = " + question;
+        socket.emit('chat', {
+            message: string
+        });
         // update answer in our state.
         this.setState({ question });
         break;
@@ -83,6 +91,12 @@ class Frame extends React.Component {
     }
   }
 }
+var output = document.getElementsByClassName(history);
+console.log(output);
+socket.on('chat', function(data){
+    output.innerHTML += '<p>' + data.message  + '</p>' + output.innerHTML;
+    console.log(output.innerHTML);
+})
 
 // export our frame component. To be used in our client/index.js file
 export default Frame;
